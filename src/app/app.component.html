@@ -1,0 +1,12 @@
+<mat-sidenav-container fxFlexFill hasBackdrop="true">
+  <mat-sidenav #sidenav fxLayout="column" mode="over" opened="false">
+    <app-sidenav />
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <app-toolbar (sidenavToggle)="sidenav.toggle()" />
+    <app-notification />
+    <main>
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

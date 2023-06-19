@@ -1,0 +1,13 @@
+.table-container {
+  height: 16rem;
+  overflow: auto;
+}
+
+th {
+  text-transform: capitalize;
+}
+
+.table-row:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.01) !important;
+}

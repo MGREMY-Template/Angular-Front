@@ -1,0 +1,23 @@
+<form [formGroup]="signUpForm">
+  <div fxLayout="column">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="abcd@efgh.ijk" formControlName="email" type="email">
+      <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">Please enter an email</mat-error>
+      <mat-error *ngIf="signUpForm.get('email')?.hasError('email')">Invalid email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password">
+      <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">Please enter a password</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Confirm password</mat-label>
+      <input matInput formControlName="confirmPassword" type="password">
+      <mat-error *ngIf="signUpForm.get('confirmPassword')?.hasError('required')">Please confirm the password</mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="signUpForm.hasError('passwordNoMatch')">Password does not match</mat-error>
+    <button fxFill mat-stroked-button color="primary" type="submit" [disabled]="!signUpForm.dirty || signUpForm.invalid"
+      (click)="onSubmit()">SIGN UP</button>
+  </div>
+</form>
