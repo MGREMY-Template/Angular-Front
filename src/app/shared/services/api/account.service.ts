@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Result } from '../../models/api/Result';
+import { Result } from '../../models/api/result';
 import { Configuration } from '../../configuration';
 
 import { GetClaimsOutput } from '../../models/api/getClaimsOutput';

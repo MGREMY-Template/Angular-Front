@@ -6,7 +6,7 @@ import { NotificationService } from "../services/notification.service";
 import { NotificationDto } from "../models/hub/NotificationDto";
 
 import Settings from "../../../assets/settings.json";
-import { Result } from "../models/api/Result";
+import { Result } from "../models/api/result";
 
 @Injectable()
 export class HttpServerErrorInterceptor implements HttpInterceptor {
