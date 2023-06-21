@@ -11,7 +11,7 @@
       <input matInput formControlName="password" type="password">
       <mat-error *ngIf="signInForm.get('password')?.hasError('required')">Please enter a password</mat-error>
     </mat-form-field>
+    <button fxFill mat-stroked-button color="primary" type="submit" [disabled]="!signInForm.dirty || signInForm.invalid"
+      (click)="onSubmit()">SIGN IN</button>
   </div>
-  <button fxFill mat-stroked-button color="primary" type="submit" [disabled]="!signInForm.dirty || signInForm.invalid"
-    (click)="onSubmit()">SIGN IN</button>
 </form>

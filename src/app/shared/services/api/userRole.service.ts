@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { UserRoleDtoArrayResult } from '../../models/api/userRoleDtoArrayResult';
-import { UserRoleDtoResult } from '../../models/api/userRoleDtoResult';
 import { Configuration } from '../../configuration';
 import { CustomHttpUrlEncodingCodec } from '../../encoder';
+
+import { Result } from '../../models/api/Result';
+import { UserRoleDto } from '../../models/api/userRoleDto';
 
 import Settings from '../../../../assets/settings.json';
 
@@ -18,9 +19,9 @@ export class UserRoleService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityUserRoleGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<UserRoleDtoArrayResult>;
-  public apiIdentityUserRoleGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserRoleDtoArrayResult>>;
-  public apiIdentityUserRoleGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserRoleDtoArrayResult>>;
+  public apiIdentityUserRoleGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<UserRoleDto[]>>;
+  public apiIdentityUserRoleGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserRoleDto[]>>>;
+  public apiIdentityUserRoleGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserRoleDto[]>>>;
   public apiIdentityUserRoleGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -30,7 +31,7 @@ export class UserRoleService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserRoleDtoArrayResult>('get', `${this.basePath}/api/Identity/UserRole/GetAll`,
+    return this.httpClient.request<Result<UserRoleDto[]>>('get', `${this.basePath}/api/Identity/UserRole/GetAll`,
       {
         headers: headers,
         observe: observe,
@@ -39,9 +40,9 @@ export class UserRoleService {
     );
   }
 
-  public apiIdentityUserRoleGetByIdGet(userId: string, roleId: string, observe?: 'body', reportProgress?: boolean): Observable<UserRoleDtoResult>;
-  public apiIdentityUserRoleGetByIdGet(userId: string, roleId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserRoleDtoResult>>;
-  public apiIdentityUserRoleGetByIdGet(userId: string, roleId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserRoleDtoResult>>;
+  public apiIdentityUserRoleGetByIdGet(userId: string, roleId: string, observe?: 'body', reportProgress?: boolean): Observable<Result<UserRoleDto>>;
+  public apiIdentityUserRoleGetByIdGet(userId: string, roleId: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserRoleDto>>>;
+  public apiIdentityUserRoleGetByIdGet(userId: string, roleId: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserRoleDto>>>;
   public apiIdentityUserRoleGetByIdGet(userId: string, roleId: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -60,7 +61,7 @@ export class UserRoleService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserRoleDtoResult>('get', `${this.basePath}/api/Identity/UserRole/GetById`,
+    return this.httpClient.request<Result<UserRoleDto>>('get', `${this.basePath}/api/Identity/UserRole/GetById`,
       {
         params: queryParameters,
         headers: headers,
@@ -70,9 +71,9 @@ export class UserRoleService {
     );
   }
 
-  public apiIdentityUserRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<UserRoleDtoArrayResult>;
-  public apiIdentityUserRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserRoleDtoArrayResult>>;
-  public apiIdentityUserRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserRoleDtoArrayResult>>;
+  public apiIdentityUserRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserRoleDto[]>>;
+  public apiIdentityUserRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserRoleDto[]>>>;
+  public apiIdentityUserRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserRoleDto[]>>>;
   public apiIdentityUserRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -97,7 +98,7 @@ export class UserRoleService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserRoleDtoArrayResult>('get', `${this.basePath}/api/Identity/UserRole/GetList`,
+    return this.httpClient.request<Result<UserRoleDto[]>>('get', `${this.basePath}/api/Identity/UserRole/GetList`,
       {
         params: queryParameters,
         headers: headers,

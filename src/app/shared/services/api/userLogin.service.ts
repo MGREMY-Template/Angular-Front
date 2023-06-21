@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { UserLoginDtoArrayResult } from '../../models/api/userLoginDtoArrayResult';
-import { UserLoginDtoResult } from '../../models/api/userLoginDtoResult';
 import { Configuration } from '../../configuration';
 import { CustomHttpUrlEncodingCodec } from '../../encoder';
+
+import { Result } from '../../models/api/Result';
+import { UserLoginDto } from '../../models/api/userLoginDto';
 
 import Settings from '../../../../assets/settings.json';
 
@@ -18,9 +19,9 @@ export class UserLoginService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityUserLoginGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<UserLoginDtoArrayResult>;
-  public apiIdentityUserLoginGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserLoginDtoArrayResult>>;
-  public apiIdentityUserLoginGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserLoginDtoArrayResult>>;
+  public apiIdentityUserLoginGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto[]>>;
+  public apiIdentityUserLoginGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto[]>>>;
+  public apiIdentityUserLoginGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto[]>>>;
   public apiIdentityUserLoginGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -30,7 +31,7 @@ export class UserLoginService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserLoginDtoArrayResult>('get', `${this.basePath}/api/Identity/UserLogin/GetAll`,
+    return this.httpClient.request<Result<UserLoginDto[]>>('get', `${this.basePath}/api/Identity/UserLogin/GetAll`,
       {
         headers: headers,
         observe: observe,
@@ -39,9 +40,9 @@ export class UserLoginService {
     );
   }
 
-  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'body', reportProgress?: boolean): Observable<UserLoginDtoResult>;
-  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserLoginDtoResult>>;
-  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserLoginDtoResult>>;
+  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto>>;
+  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto>>>;
+  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto>>>;
   public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -60,7 +61,7 @@ export class UserLoginService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserLoginDtoResult>('get', `${this.basePath}/api/Identity/UserLogin/GetById`,
+    return this.httpClient.request<Result<UserLoginDto>>('get', `${this.basePath}/api/Identity/UserLogin/GetById`,
       {
         params: queryParameters,
         headers: headers,
@@ -70,9 +71,9 @@ export class UserLoginService {
     );
   }
 
-  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<UserLoginDtoArrayResult>;
-  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserLoginDtoArrayResult>>;
-  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserLoginDtoArrayResult>>;
+  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto[]>>;
+  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto[]>>>;
+  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto[]>>>;
   public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -97,7 +98,7 @@ export class UserLoginService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserLoginDtoArrayResult>('get', `${this.basePath}/api/Identity/UserLogin/GetList`,
+    return this.httpClient.request<Result<UserLoginDto[]>>('get', `${this.basePath}/api/Identity/UserLogin/GetList`,
       {
         params: queryParameters,
         headers: headers,

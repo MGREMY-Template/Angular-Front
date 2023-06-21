@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { UserTokenDtoArrayResult } from '../../models/api/userTokenDtoArrayResult';
-import { UserTokenDtoResult } from '../../models/api/userTokenDtoResult';
 import { Configuration } from '../../configuration';
 import { CustomHttpUrlEncodingCodec } from '../../encoder';
+
+import { Result } from '../../models/api/Result';
+import { UserTokenDto } from '../../models/api/userTokenDto';
 
 import Settings from '../../../../assets/settings.json';
 
@@ -18,9 +19,9 @@ export class UserTokenService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityUserTokenGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<UserTokenDtoArrayResult>;
-  public apiIdentityUserTokenGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserTokenDtoArrayResult>>;
-  public apiIdentityUserTokenGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserTokenDtoArrayResult>>;
+  public apiIdentityUserTokenGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<UserTokenDto[]>>;
+  public apiIdentityUserTokenGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserTokenDto[]>>>;
+  public apiIdentityUserTokenGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserTokenDto[]>>>;
   public apiIdentityUserTokenGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -30,7 +31,7 @@ export class UserTokenService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserTokenDtoArrayResult>('get', `${this.basePath}/api/Identity/UserToken/GetAll`,
+    return this.httpClient.request<Result<UserTokenDto[]>>('get', `${this.basePath}/api/Identity/UserToken/GetAll`,
       {
         headers: headers,
         observe: observe,
@@ -39,9 +40,9 @@ export class UserTokenService {
     );
   }
 
-  public apiIdentityUserTokenGetByIdGet(userId: string, loginProvider: string, name: string, observe?: 'body', reportProgress?: boolean): Observable<UserTokenDtoResult>;
-  public apiIdentityUserTokenGetByIdGet(userId: string, loginProvider: string, name: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserTokenDtoResult>>;
-  public apiIdentityUserTokenGetByIdGet(userId: string, loginProvider: string, name: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserTokenDtoResult>>;
+  public apiIdentityUserTokenGetByIdGet(userId: string, loginProvider: string, name: string, observe?: 'body', reportProgress?: boolean): Observable<Result<UserTokenDto>>;
+  public apiIdentityUserTokenGetByIdGet(userId: string, loginProvider: string, name: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserTokenDto>>>;
+  public apiIdentityUserTokenGetByIdGet(userId: string, loginProvider: string, name: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserTokenDto>>>;
   public apiIdentityUserTokenGetByIdGet(userId: string, loginProvider: string, name: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -63,7 +64,7 @@ export class UserTokenService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserTokenDtoResult>('get', `${this.basePath}/api/Identity/UserToken/GetById`,
+    return this.httpClient.request<Result<UserTokenDto>>('get', `${this.basePath}/api/Identity/UserToken/GetById`,
       {
         params: queryParameters,
         headers: headers,
@@ -73,9 +74,9 @@ export class UserTokenService {
     );
   }
 
-  public apiIdentityUserTokenGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<UserTokenDtoArrayResult>;
-  public apiIdentityUserTokenGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserTokenDtoArrayResult>>;
-  public apiIdentityUserTokenGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserTokenDtoArrayResult>>;
+  public apiIdentityUserTokenGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserTokenDto[]>>;
+  public apiIdentityUserTokenGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserTokenDto[]>>>;
+  public apiIdentityUserTokenGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserTokenDto[]>>>;
   public apiIdentityUserTokenGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -100,7 +101,7 @@ export class UserTokenService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserTokenDtoArrayResult>('get', `${this.basePath}/api/Identity/UserToken/GetList`,
+    return this.httpClient.request<Result<UserTokenDto[]>>('get', `${this.basePath}/api/Identity/UserToken/GetList`,
       {
         params: queryParameters,
         headers: headers,
