@@ -30,6 +30,10 @@ export class RegisterComponent {
       validators: [Validators.required, Validators.email],
       nonNullable: true
     }],
+    userName: ["", {
+      validators: [Validators.required],
+      nonNullable: true,
+    }],
     password: ["", {
       validators: [Validators.required]
     }],
@@ -47,5 +51,11 @@ export class RegisterComponent {
   ) { }
 
   onSubmit() {
+    this.signUpQuery = <SignUpQuery>this.signUpForm.value;
+
+    this.authService.apiAuthAuthSignUpPost(this.signUpQuery)
+      .subscribe(() => {
+        window.location.reload();
+      })
   }
 }

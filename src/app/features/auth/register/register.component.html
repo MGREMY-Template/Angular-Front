@@ -7,6 +7,11 @@
       <mat-error *ngIf="signUpForm.get('email')?.hasError('email')">Invalid email</mat-error>
     </mat-form-field>
     <mat-form-field>
+      <mat-label>UserName</mat-label>
+      <input matInput formControlName="userName">
+      <mat-error *ngIf="signUpForm.get('userName')?.hasError('required')">Please enter a userName</mat-error>
+    </mat-form-field>
+    <mat-form-field>
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" type="password">
       <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">Please enter a password</mat-error>
