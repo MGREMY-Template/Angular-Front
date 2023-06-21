@@ -1,0 +1,32 @@
+name: typescript
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup node
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+        cache: 'npm'
+    - name: Install dependancies
+      run: npm install
+#    - name: Run test
+#      run: npm run test:headless
+    - name: Build
+      run: npm run build:prod
+  call-docker:
+    permissions:
+      contents: read
+      packages: write
+    if: always() && contains(join(needs.*.result, ','), 'success') && github.event_name != 'pull_request'
+    needs: [build]
+    uses: ./.github/workflows/docker.yml
