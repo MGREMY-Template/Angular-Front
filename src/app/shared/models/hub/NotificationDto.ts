@@ -1,4 +1,4 @@
 export interface NotificationDto {
-  title: string;
+  title?: string;
   content: string;
 }

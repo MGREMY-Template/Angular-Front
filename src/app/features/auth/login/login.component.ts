@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -16,6 +16,7 @@ import { AppAuthService } from 'src/app/core/services/app.auth.service';
   imports: [
     ReactiveFormsModule,
     NgIf,
+    NgFor,
     MatInputModule,
     MatButtonModule,
     FlexLayoutModule,
@@ -46,8 +47,8 @@ export class LoginComponent {
     this.signInQuery = <SignInQuery>this.signInForm.value;
 
     this.authService.apiAuthAuthSignInPost(this.signInQuery)
-      .subscribe(async data => {
-        await this.appAuthService.login(data.value!)
+      .subscribe(async response => {
+        await this.appAuthService.login(response.value!)
         this.router.navigate(['/']);
       });
   }

@@ -7,12 +7,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routing';
 import { HttpBaseInterceptor } from './app/shared/helpers/httpBase.interceptor';
+import { HttpServerErrorInterceptor } from './app/shared/helpers/httpServerError.interceptor';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
     importProvidersFrom(BrowserAnimationsModule, HttpClientModule, BrowserAnimationsModule),
     { provide: HTTP_INTERCEPTORS, useClass: HttpBaseInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpServerErrorInterceptor, multi: true },
   ]
 })
   .catch(err => console.error(err));

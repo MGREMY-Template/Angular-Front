@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { RoleClaimDtoArrayResult } from '../../models/api/roleClaimDtoArrayResult';
-import { RoleClaimDtoResult } from '../../models/api/roleClaimDtoResult';
 import { Configuration } from '../../configuration';
 import { CustomHttpUrlEncodingCodec } from '../../encoder';
+
+import { Result } from '../../models/api/Result';
+import { RoleClaimDto } from '../../models/api/roleClaimDto';
 
 import Settings from '../../../../assets/settings.json';
 
@@ -18,9 +19,9 @@ export class RoleClaimService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityRoleClaimGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<RoleClaimDtoArrayResult>;
-  public apiIdentityRoleClaimGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RoleClaimDtoArrayResult>>;
-  public apiIdentityRoleClaimGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RoleClaimDtoArrayResult>>;
+  public apiIdentityRoleClaimGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto[]>>;
+  public apiIdentityRoleClaimGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto[]>>>;
+  public apiIdentityRoleClaimGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto[]>>>;
   public apiIdentityRoleClaimGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -30,7 +31,7 @@ export class RoleClaimService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<RoleClaimDtoArrayResult>('get', `${this.basePath}/api/Identity/RoleClaim/GetAll`,
+    return this.httpClient.request<Result<RoleClaimDto[]>>('get', `${this.basePath}/api/Identity/RoleClaim/GetAll`,
       {
         headers: headers,
         observe: observe,
@@ -39,9 +40,9 @@ export class RoleClaimService {
     );
   }
 
-  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<RoleClaimDtoResult>;
-  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RoleClaimDtoResult>>;
-  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RoleClaimDtoResult>>;
+  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto>>;
+  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto>>>;
+  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto>>>;
   public apiIdentityRoleClaimGetByIdGet(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -57,7 +58,7 @@ export class RoleClaimService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<RoleClaimDtoResult>('get', `${this.basePath}/api/Identity/RoleClaim/GetById`,
+    return this.httpClient.request<Result<RoleClaimDto>>('get', `${this.basePath}/api/Identity/RoleClaim/GetById`,
       {
         params: queryParameters,
         headers: headers,
@@ -67,9 +68,9 @@ export class RoleClaimService {
     );
   }
 
-  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<RoleClaimDtoArrayResult>;
-  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<RoleClaimDtoArrayResult>>;
-  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<RoleClaimDtoArrayResult>>;
+  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto[]>>;
+  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto[]>>>;
+  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto[]>>>;
   public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -94,7 +95,7 @@ export class RoleClaimService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<RoleClaimDtoArrayResult>('get', `${this.basePath}/api/Identity/RoleClaim/GetList`,
+    return this.httpClient.request<Result<RoleClaimDto[]>>('get', `${this.basePath}/api/Identity/RoleClaim/GetList`,
       {
         params: queryParameters,
         headers: headers,

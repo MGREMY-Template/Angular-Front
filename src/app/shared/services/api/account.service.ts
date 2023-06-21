@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { GetClaimsOutputResult } from '../../models/api/getClaimsOutputResult';
-import { GetRolesOutputResult } from '../../models/api/getRolesOutputResult';
+import { Result } from '../../models/api/Result';
 import { Configuration } from '../../configuration';
+
+import { GetClaimsOutput } from '../../models/api/getClaimsOutput';
+import { GetRolesOutput } from '../../models/api/getRolesOutput';
 
 import Settings from '../../../../assets/settings.json';
 
@@ -17,9 +19,9 @@ export class AccountService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiAccountGetClaimsGet(observe?: 'body', reportProgress?: boolean): Observable<GetClaimsOutputResult>;
-  public apiAccountGetClaimsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GetClaimsOutputResult>>;
-  public apiAccountGetClaimsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GetClaimsOutputResult>>;
+  public apiAccountGetClaimsGet(observe?: 'body', reportProgress?: boolean): Observable<Result<GetClaimsOutput>>;
+  public apiAccountGetClaimsGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<GetClaimsOutput>>>;
+  public apiAccountGetClaimsGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<GetClaimsOutput>>>;
   public apiAccountGetClaimsGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -29,7 +31,7 @@ export class AccountService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<GetClaimsOutputResult>('get', `${this.basePath}/api/Account/GetClaims`,
+    return this.httpClient.request<Result<GetClaimsOutput>>('get', `${this.basePath}/api/Account/GetClaims`,
       {
         headers: headers,
         observe: observe,
@@ -38,9 +40,9 @@ export class AccountService {
     );
   }
 
-  public apiAccountGetRolesGet(observe?: 'body', reportProgress?: boolean): Observable<GetRolesOutputResult>;
-  public apiAccountGetRolesGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GetRolesOutputResult>>;
-  public apiAccountGetRolesGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GetRolesOutputResult>>;
+  public apiAccountGetRolesGet(observe?: 'body', reportProgress?: boolean): Observable<Result<GetRolesOutput>>;
+  public apiAccountGetRolesGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<GetRolesOutput>>>;
+  public apiAccountGetRolesGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<GetRolesOutput>>>;
   public apiAccountGetRolesGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -50,7 +52,7 @@ export class AccountService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<GetRolesOutputResult>('get', `${this.basePath}/api/Account/GetRoles`,
+    return this.httpClient.request<Result<GetRolesOutput>>('get', `${this.basePath}/api/Account/GetRoles`,
       {
         headers: headers,
         observe: observe,
@@ -58,5 +60,4 @@ export class AccountService {
       }
     );
   }
-
 }

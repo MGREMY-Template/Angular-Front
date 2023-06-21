@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { UserClaimDtoArrayResult } from '../../models/api/userClaimDtoArrayResult';
-import { UserClaimDtoResult } from '../../models/api/userClaimDtoResult';
 import { Configuration } from '../../configuration';
 import { CustomHttpUrlEncodingCodec } from '../../encoder';
+
+import { Result } from '../../models/api/Result';
+import { UserClaimDto } from '../../models/api/userClaimDto';
 
 import Settings from '../../../../assets/settings.json';
 
@@ -18,9 +19,9 @@ export class UserClaimService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityUserClaimGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<UserClaimDtoArrayResult>;
-  public apiIdentityUserClaimGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserClaimDtoArrayResult>>;
-  public apiIdentityUserClaimGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserClaimDtoArrayResult>>;
+  public apiIdentityUserClaimGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<UserClaimDto[]>>;
+  public apiIdentityUserClaimGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserClaimDto[]>>>;
+  public apiIdentityUserClaimGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserClaimDto[]>>>;
   public apiIdentityUserClaimGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -30,7 +31,7 @@ export class UserClaimService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserClaimDtoArrayResult>('get', `${this.basePath}/api/IdentityUserClaim/GetAll`,
+    return this.httpClient.request<Result<UserClaimDto[]>>('get', `${this.basePath}/api/IdentityUserClaim/GetAll`,
       {
         headers: headers,
         observe: observe,
@@ -39,9 +40,9 @@ export class UserClaimService {
     );
   }
 
-  public apiIdentityUserClaimGetByIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<UserClaimDtoResult>;
-  public apiIdentityUserClaimGetByIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserClaimDtoResult>>;
-  public apiIdentityUserClaimGetByIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserClaimDtoResult>>;
+  public apiIdentityUserClaimGetByIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<Result<UserClaimDto>>;
+  public apiIdentityUserClaimGetByIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserClaimDto>>>;
+  public apiIdentityUserClaimGetByIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserClaimDto>>>;
   public apiIdentityUserClaimGetByIdGet(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -57,7 +58,7 @@ export class UserClaimService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserClaimDtoResult>('get', `${this.basePath}/api/IdentityUserClaim/GetById`,
+    return this.httpClient.request<Result<UserClaimDto>>('get', `${this.basePath}/api/IdentityUserClaim/GetById`,
       {
         params: queryParameters,
         headers: headers,
@@ -67,9 +68,9 @@ export class UserClaimService {
     );
   }
 
-  public apiIdentityUserClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<UserClaimDtoArrayResult>;
-  public apiIdentityUserClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserClaimDtoArrayResult>>;
-  public apiIdentityUserClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserClaimDtoArrayResult>>;
+  public apiIdentityUserClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserClaimDto[]>>;
+  public apiIdentityUserClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserClaimDto[]>>>;
+  public apiIdentityUserClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserClaimDto[]>>>;
   public apiIdentityUserClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
@@ -94,7 +95,7 @@ export class UserClaimService {
       headers = headers.set('Accept', httpHeaderAcceptSelected);
     }
 
-    return this.httpClient.request<UserClaimDtoArrayResult>('get', `${this.basePath}/api/IdentityUserClaim/GetList`,
+    return this.httpClient.request<Result<UserClaimDto[]>>('get', `${this.basePath}/api/IdentityUserClaim/GetList`,
       {
         params: queryParameters,
         headers: headers,
