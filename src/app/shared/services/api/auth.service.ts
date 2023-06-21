@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Result } from '../../models/api/Result';
+import { Result } from '../../models/api/result';
 import { ConfirmEmailQuery } from '../../models/api/confirmEmailQuery';
 import { SignInQuery } from '../../models/api/signInQuery';
 import { SignUpQuery } from '../../models/api/signUpQuery';

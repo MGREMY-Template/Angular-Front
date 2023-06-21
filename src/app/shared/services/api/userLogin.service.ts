@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Configuration } from '../../configuration';
 import { CustomHttpUrlEncodingCodec } from '../../encoder';
 
-import { Result } from '../../models/api/Result';
+import { Result } from '../../models/api/result';
 import { UserLoginDto } from '../../models/api/userLoginDto';
 
 import Settings from '../../../../assets/settings.json';
