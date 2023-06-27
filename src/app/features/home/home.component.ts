@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ImageProcessingService } from 'src/app/shared/services/imageProcessing.service';
 
 @Component({
   selector: 'app-home',
