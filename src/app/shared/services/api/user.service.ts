@@ -19,10 +19,10 @@ export class UserService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityUserGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto[]>>;
-  public apiIdentityUserGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto[]>>>;
-  public apiIdentityUserGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto[]>>>;
-  public apiIdentityUserGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetAll(observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto[]>>;
+  public GetAll(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto[]>>>;
+  public GetAll(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto[]>>>;
+  public GetAll(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
@@ -40,10 +40,10 @@ export class UserService {
     );
   }
 
-  public apiIdentityUserGetByIdGet(id: string, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto>>;
-  public apiIdentityUserGetByIdGet(id: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto>>>;
-  public apiIdentityUserGetByIdGet(id: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto>>>;
-  public apiIdentityUserGetByIdGet(id: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetById(id: string, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto>>;
+  public GetById(id: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto>>>;
+  public GetById(id: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto>>>;
+  public GetById(id: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -68,10 +68,10 @@ export class UserService {
     );
   }
 
-  public apiIdentityUserGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto[]>>;
-  public apiIdentityUserGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto[]>>>;
-  public apiIdentityUserGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto[]>>>;
-  public apiIdentityUserGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto[]>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -105,10 +105,10 @@ export class UserService {
     );
   }
 
-  public apiIdentityUserCountGet(observe?: 'body', reportProgress?: boolean): Observable<number>;
-  public apiIdentityUserCountGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
-  public apiIdentityUserCountGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
-  public apiIdentityUserCountGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public Count(observe?: 'body', reportProgress?: boolean): Observable<number>;
+  public Count(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
+  public Count(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
+  public Count(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
