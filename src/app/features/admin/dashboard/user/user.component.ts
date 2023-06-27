@@ -24,8 +24,8 @@ export class UserComponent {
   constructor(private userService: UserService) {
     this.rowTemplate = ["id", "userName", "email"];
     this.loadDataFunction = (pageSize: number, pageIndex: number, sortBy: string | undefined, isDesc: boolean | undefined): Observable<{ value?: UserDto[] }> =>
-      this.userService.apiIdentityUserGetListGet(pageSize, pageSize * pageIndex, sortBy, isDesc);
-    this.loadTotalCountFunction = (): Observable<number> => this.userService.apiIdentityUserCountGet();
+      this.userService.GetList(pageSize, pageSize * pageIndex, sortBy, isDesc);
+    this.loadTotalCountFunction = (): Observable<number> => this.userService.Count();
     this.onRowClickedFunction = (data: UserDto): any => console.log(data);
   }
 }

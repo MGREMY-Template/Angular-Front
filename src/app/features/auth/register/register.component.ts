@@ -53,7 +53,7 @@ export class RegisterComponent {
   onSubmit() {
     this.signUpQuery = <SignUpQuery>this.signUpForm.value;
 
-    this.authService.apiAuthAuthSignUpPost(this.signUpQuery)
+    this.authService.SignUp(this.signUpQuery)
       .subscribe(() => {
         window.location.reload();
       })

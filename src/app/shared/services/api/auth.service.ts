@@ -25,10 +25,10 @@ export class AuthService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiAuthAuthConfirmEmailPost(body?: ConfirmEmailQuery, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto>>;
-  public apiAuthAuthConfirmEmailPost(body?: ConfirmEmailQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto>>>;
-  public apiAuthAuthConfirmEmailPost(body?: ConfirmEmailQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto>>>;
-  public apiAuthAuthConfirmEmailPost(body?: ConfirmEmailQuery, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public ConfirmEmail(body?: ConfirmEmailQuery, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto>>;
+  public ConfirmEmail(body?: ConfirmEmailQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto>>>;
+  public ConfirmEmail(body?: ConfirmEmailQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto>>>;
+  public ConfirmEmail(body?: ConfirmEmailQuery, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
@@ -53,10 +53,10 @@ export class AuthService {
     );
   }
 
-  public apiAuthAuthGetEmailConfimationTokenGet(email: string, observe?: 'body', reportProgress?: boolean): Observable<Result<GetEmailConfirmationTokenOutput>>;
-  public apiAuthAuthGetEmailConfimationTokenGet(email: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<GetEmailConfirmationTokenOutput>>>;
-  public apiAuthAuthGetEmailConfimationTokenGet(email: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<GetEmailConfirmationTokenOutput>>>;
-  public apiAuthAuthGetEmailConfimationTokenGet(email: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetEmailConfirmationToken(email: string, observe?: 'body', reportProgress?: boolean): Observable<Result<GetEmailConfirmationTokenOutput>>;
+  public GetEmailConfirmationToken(email: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<GetEmailConfirmationTokenOutput>>>;
+  public GetEmailConfirmationToken(email: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<GetEmailConfirmationTokenOutput>>>;
+  public GetEmailConfirmationToken(email: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -81,10 +81,10 @@ export class AuthService {
     );
   }
 
-  public apiAuthAuthSignInPost(body?: SignInQuery, observe?: 'body', reportProgress?: boolean): Observable<Result<SignInOutput>>;
-  public apiAuthAuthSignInPost(body?: SignInQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<SignInOutput>>>;
-  public apiAuthAuthSignInPost(body?: SignInQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<SignInOutput>>>;
-  public apiAuthAuthSignInPost(body?: SignInQuery, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public SignIn(body?: SignInQuery, observe?: 'body', reportProgress?: boolean): Observable<Result<SignInOutput>>;
+  public SignIn(body?: SignInQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<SignInOutput>>>;
+  public SignIn(body?: SignInQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<SignInOutput>>>;
+  public SignIn(body?: SignInQuery, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
@@ -109,10 +109,10 @@ export class AuthService {
     );
   }
 
-  public apiAuthAuthSignUpPost(body?: SignUpQuery, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto>>;
-  public apiAuthAuthSignUpPost(body?: SignUpQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto>>>;
-  public apiAuthAuthSignUpPost(body?: SignUpQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto>>>;
-  public apiAuthAuthSignUpPost(body?: SignUpQuery, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public SignUp(body?: SignUpQuery, observe?: 'body', reportProgress?: boolean): Observable<Result<UserDto>>;
+  public SignUp(body?: SignUpQuery, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserDto>>>;
+  public SignUp(body?: SignUpQuery, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserDto>>>;
+  public SignUp(body?: SignUpQuery, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);

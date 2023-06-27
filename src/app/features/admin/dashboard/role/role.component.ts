@@ -24,8 +24,8 @@ export class RoleComponent {
   constructor(private roleService: RoleService) {
     this.rowTemplate = ["id", "name"];
     this.loadDataFunction = (pageSize: number, pageIndex: number, sortBy: string | undefined, isDesc: boolean | undefined): Observable<{ value?: RoleDto[] }> =>
-      this.roleService.apiIdentityRoleGetListGet(pageSize, pageSize * pageIndex, sortBy, isDesc);
-    this.loadTotalCountFunction = (): Observable<number> => this.roleService.apiIdentityRoleCountGet();
+      this.roleService.GetList(pageSize, pageSize * pageIndex, sortBy, isDesc);
+    this.loadTotalCountFunction = (): Observable<number> => this.roleService.Count();
     this.onRowClickedFunction = (data: RoleDto): any => console.log(data);
   }
 }

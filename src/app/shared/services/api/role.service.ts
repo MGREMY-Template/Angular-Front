@@ -19,10 +19,10 @@ export class RoleService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityRoleGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<RoleDto[]>>;
-  public apiIdentityRoleGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleDto[]>>>;
-  public apiIdentityRoleGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleDto[]>>>;
-  public apiIdentityRoleGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetAll(observe?: 'body', reportProgress?: boolean): Observable<Result<RoleDto[]>>;
+  public GetAll(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleDto[]>>>;
+  public GetAll(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleDto[]>>>;
+  public GetAll(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
@@ -40,10 +40,10 @@ export class RoleService {
     );
   }
 
-  public apiIdentityRoleGetByIdGet(id: string, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleDto>>;
-  public apiIdentityRoleGetByIdGet(id: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleDto>>>;
-  public apiIdentityRoleGetByIdGet(id: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleDto>>>;
-  public apiIdentityRoleGetByIdGet(id: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetById(id: string, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleDto>>;
+  public GetById(id: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleDto>>>;
+  public GetById(id: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleDto>>>;
+  public GetById(id: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -68,10 +68,10 @@ export class RoleService {
     );
   }
 
-  public apiIdentityRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleDto[]>>;
-  public apiIdentityRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleDto[]>>>;
-  public apiIdentityRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleDto[]>>>;
-  public apiIdentityRoleGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleDto[]>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -105,10 +105,10 @@ export class RoleService {
     );
   }
 
-  public apiIdentityRoleCountGet(observe?: 'body', reportProgress?: boolean): Observable<number>;
-  public apiIdentityRoleCountGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
-  public apiIdentityRoleCountGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
-  public apiIdentityRoleCountGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public Count(observe?: 'body', reportProgress?: boolean): Observable<number>;
+  public Count(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
+  public Count(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
+  public Count(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);

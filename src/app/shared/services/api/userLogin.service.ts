@@ -19,10 +19,10 @@ export class UserLoginService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityUserLoginGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto[]>>;
-  public apiIdentityUserLoginGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto[]>>>;
-  public apiIdentityUserLoginGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto[]>>>;
-  public apiIdentityUserLoginGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetAll(observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto[]>>;
+  public GetAll(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto[]>>>;
+  public GetAll(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto[]>>>;
+  public GetAll(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
@@ -40,10 +40,10 @@ export class UserLoginService {
     );
   }
 
-  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto>>;
-  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto>>>;
-  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto>>>;
-  public apiIdentityUserLoginGetByIdGet(loginProvider: string, providerKey: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetById(loginProvider: string, providerKey: string, observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto>>;
+  public GetById(loginProvider: string, providerKey: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto>>>;
+  public GetById(loginProvider: string, providerKey: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto>>>;
+  public GetById(loginProvider: string, providerKey: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -71,10 +71,10 @@ export class UserLoginService {
     );
   }
 
-  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto[]>>;
-  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto[]>>>;
-  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto[]>>>;
-  public apiIdentityUserLoginGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<UserLoginDto[]>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<UserLoginDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<UserLoginDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -108,10 +108,10 @@ export class UserLoginService {
     );
   }
 
-  public apiIdentityUserLoginCountGet(observe?: 'body', reportProgress?: boolean): Observable<number>;
-  public apiIdentityUserLoginCountGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
-  public apiIdentityUserLoginCountGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
-  public apiIdentityUserLoginCountGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public Count(observe?: 'body', reportProgress?: boolean): Observable<number>;
+  public Count(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
+  public Count(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
+  public Count(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);

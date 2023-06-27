@@ -19,10 +19,10 @@ export class RoleClaimService {
 
   constructor(protected httpClient: HttpClient, protected configuration: Configuration) { }
 
-  public apiIdentityRoleClaimGetAllGet(observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto[]>>;
-  public apiIdentityRoleClaimGetAllGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto[]>>>;
-  public apiIdentityRoleClaimGetAllGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto[]>>>;
-  public apiIdentityRoleClaimGetAllGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetAll(observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto[]>>;
+  public GetAll(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto[]>>>;
+  public GetAll(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto[]>>>;
+  public GetAll(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
@@ -40,10 +40,10 @@ export class RoleClaimService {
     );
   }
 
-  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto>>;
-  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto>>>;
-  public apiIdentityRoleClaimGetByIdGet(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto>>>;
-  public apiIdentityRoleClaimGetByIdGet(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetById(id: number, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto>>;
+  public GetById(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto>>>;
+  public GetById(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto>>>;
+  public GetById(id: number, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -68,10 +68,10 @@ export class RoleClaimService {
     );
   }
 
-  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto[]>>;
-  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto[]>>>;
-  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto[]>>>;
-  public apiIdentityRoleClaimGetListGet(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Result<RoleClaimDto[]>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<RoleClaimDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<RoleClaimDto[]>>>;
+  public GetList(take?: number, skip?: number, orderBy?: string, isOrderByDescending?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
@@ -105,10 +105,10 @@ export class RoleClaimService {
     );
   }
 
-  public apiIdentityRoleClaimCountGet(observe?: 'body', reportProgress?: boolean): Observable<number>;
-  public apiIdentityRoleClaimCountGet(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
-  public apiIdentityRoleClaimCountGet(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
-  public apiIdentityRoleClaimCountGet(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public Count(observe?: 'body', reportProgress?: boolean): Observable<number>;
+  public Count(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<number>>;
+  public Count(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<number>>;
+  public Count(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
 
     const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);

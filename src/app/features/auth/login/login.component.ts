@@ -46,7 +46,7 @@ export class LoginComponent {
   onSubmit() {
     this.signInQuery = <SignInQuery>this.signInForm.value;
 
-    this.authService.apiAuthAuthSignInPost(this.signInQuery)
+    this.authService.SignIn(this.signInQuery)
       .subscribe(async response => {
         await this.appAuthService.login(response.value!)
         this.router.navigate(['/']);

@@ -24,8 +24,8 @@ export class UserClaimComponent {
   constructor(private userClaimService: UserClaimService) {
     this.rowTemplate = ["id", "userId", "claimType", "claimValue"];
     this.loadDataFunction = (pageSize: number, pageIndex: number, sortBy: string | undefined, isDesc: boolean | undefined): Observable<{ value?: UserClaimDto[] }> =>
-      this.userClaimService.apiIdentityUserClaimGetListGet(pageSize, pageSize * pageIndex, sortBy, isDesc);
-    this.loadTotalCountFunction = (): Observable<number> => this.userClaimService.apiIdentityUserClaimCountGet();
+      this.userClaimService.GetList(pageSize, pageSize * pageIndex, sortBy, isDesc);
+    this.loadTotalCountFunction = (): Observable<number> => this.userClaimService.Count();
     this.onRowClickedFunction = (data: UserClaimDto): any => console.log(data);
   }
 }
