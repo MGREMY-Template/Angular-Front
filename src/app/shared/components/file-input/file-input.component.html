@@ -1,0 +1,11 @@
+<input type="file" class="file-input" [accept]="requiredFileType" (change)="onFileSelected($event)" #selectedFile>
+
+<div fxLayout="row">
+  <span fxLayout="row" fxLayoutAlign="center center" class="file-upload" [class.font-bold]="fileName !== undefined">
+    {{fileName || "No file selected yet"}}
+  </span>
+
+  <button mat-mini-fab color="primary" (click)="selectedFile.click()">
+    <mat-icon>attach_file</mat-icon>
+  </button>
+</div>
