@@ -1,7 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
@@ -18,7 +17,6 @@ import { matchValidator } from 'src/app/shared/validators/match.validator';
     NgIf,
     MatInputModule,
     MatButtonModule,
-    FlexLayoutModule,
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']

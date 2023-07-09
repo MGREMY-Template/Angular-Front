@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 
 import { Observable, Subscription, of } from 'rxjs';
@@ -16,7 +15,6 @@ import { NotificationDto } from '../../models/hub/NotificationDto';
   imports: [
     NgFor,
     NgIf,
-    FlexLayoutModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,

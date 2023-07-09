@@ -1,5 +1,5 @@
-<section fxLayout="column" class="table-container">
-  <table mat-table matSort fixedLayout
+<section class="table-container">
+  <table mat-table matSort
     (matSortChange)="paging.sortBy = $event.active; paging.isDesc = $event.direction == 'desc'; loadData()"
     [dataSource]="dataSource">
     <ng-container *ngFor="let row of rowTemplate" [matColumnDef]="row">

@@ -4,7 +4,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { Observable } from 'rxjs/internal/Observable';
 
 import { Paging } from '../../models/paging.class';
@@ -15,7 +14,6 @@ import { LoadingScreenComponent } from '../loading-screen/loading-screen.compone
   selector: 'app-pagined-table[loadDataFunction][loadTotalCountFunction][rowTemplate][onRowClickedFunction]',
   standalone: true,
   imports: [
-    FlexLayoutModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
