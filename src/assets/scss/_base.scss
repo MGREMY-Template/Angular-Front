@@ -1,5 +1,10 @@
 @use '@angular/material' as mat;
 
+/* TAILWINDCSS */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 @include mat.core();
 
 $my-primary: mat.define-palette(mat.$blue-palette, 800, 700);
@@ -8,14 +13,12 @@ $my-accent: mat.define-palette(mat.$teal-palette, 200);
 // The "warn" palette is optional and defaults to red if not specified.
 $my-warn: mat.define-palette(mat.$red-palette);
 
-$my-theme: mat.define-light-theme((
- color: (
-   primary: $my-primary,
-   accent: $my-accent,
-   warn: $my-warn,
- ),
- typography: mat.define-typography-config(),
- density: 0,
-));
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn,
+      ),
+      typography: mat.define-typography-config(),
+      density: 0,
+    ));
 
 @include mat.all-component-themes($my-theme);

@@ -1,7 +1,6 @@
 import { Component, } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
@@ -21,7 +20,6 @@ import { NotificationComponent } from './shared/components/notification/notifica
     RouterLink,
     HttpClientModule,
     MatSidenavModule,
-    FlexLayoutModule,
   ],
 })
 export class AppComponent {

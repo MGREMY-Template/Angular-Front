@@ -1,7 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatGridListModule } from '@angular/material/grid-list';
 
 import { UserComponent } from './user/user.component';
@@ -21,7 +20,6 @@ import * as roles from '../../../shared/constants/role.constants';
   standalone: true,
   imports: [
     MatCardModule,
-    FlexLayoutModule,
     MatGridListModule,
     NgIf,
     UserComponent,
