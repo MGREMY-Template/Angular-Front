@@ -136,10 +136,10 @@ export class AppFileService {
     );
   }
 
-  public Post(file?: Blob, observe?: 'body', reportProgress?: boolean): Observable<Result<AppFileDto>>;
-  public Post(file?: Blob, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<AppFileDto>>>;
-  public Post(file?: Blob, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<AppFileDto>>>;
-  public Post(file?: Blob, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
+  public Post(file?: File, observe?: 'body', reportProgress?: boolean): Observable<Result<AppFileDto>>;
+  public Post(file?: File, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Result<AppFileDto>>>;
+  public Post(file?: File, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Result<AppFileDto>>>;
+  public Post(file?: File, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
     let headers = this.defaultHeaders;
     let formData = new FormData();
 
@@ -150,43 +150,15 @@ export class AppFileService {
     }
 
     if (file != undefined) {
-      formData.append("file", file);
+      formData.append("file", file, file.name);
     }
 
-    return this.httpClient.request<Result<AppFileDto>>('post', '${this.basePath}/api/Application/AppFile/Post',
+    return this.httpClient.request<Result<AppFileDto>>('post', `${this.basePath}/api/Application/AppFile/Post`,
       {
         body: formData,
         headers: headers,
         observe: observe,
         reportProgress: reportProgress
       });
-
-    /*
-        let headers = this.defaultHeaders;
-
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(['application/json']);
-
-        if (httpHeaderAcceptSelected != undefined) {
-          headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        let formParams: { append(param: string, value: any): void; };
-        let convertFormParamsToString = false;
-
-        formParams = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
-
-        if (file !== undefined) {
-          formParams = formParams.append('File', <any>file) as any || formParams;
-        }
-
-        return this.httpClient.request<Result<AppFileDto>>('post', `${this.basePath}/api/Application/AppFile/Post`,
-          {
-            body: convertFormParamsToString ? formParams.toString() : formParams,
-            headers: headers,
-            observe: observe,
-            reportProgress: reportProgress
-          }
-        );
-    */
   }
 }
