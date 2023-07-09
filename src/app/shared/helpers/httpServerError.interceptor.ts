@@ -21,7 +21,7 @@ export class HttpServerErrorInterceptor implements HttpInterceptor {
           if ((resultError.isSuccess || resultError.isFailure) && resultError.messages) {
             var notifications: NotificationDto[] = [];
 
-            resultError.messages.forEach(x => notifications.push({ title: `Error ${resultError.statusCode}`, content: x }));
+            resultError.messages.forEach(x => notifications.push(new NotificationDto(x, `Error ${resultError.statusCode}`)));
 
             this.notificationService.newNotifications(notifications);
 
@@ -29,7 +29,7 @@ export class HttpServerErrorInterceptor implements HttpInterceptor {
           }
         }
 
-        this.notificationService.newNotification({ title: `${err.status} ${err.statusText}`, content: `${String(err.error).split('\r\n')[0]}` });
+        this.notificationService.newNotification(new NotificationDto(`${String(err.error).split('\r\n')[0]}`, `${err.status} ${err.statusText}`));
 
         return throwError(() => err);
       }),

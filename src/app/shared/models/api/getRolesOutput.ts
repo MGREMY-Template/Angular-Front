@@ -1,5 +1,9 @@
 import { RoleDto } from './roleDto';
 
-export interface GetRolesOutput {
-    roles: Array<RoleDto>;
+export class GetRolesOutput {
+  roles: Array<RoleDto>;
+
+  constructor(roles: RoleDto[]) {
+    this.roles = roles;
+  }
 }

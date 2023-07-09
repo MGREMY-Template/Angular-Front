@@ -1,5 +1,9 @@
 import { ClaimDto } from './claimDto';
 
-export interface GetClaimsOutput {
-    userClaims: Array<ClaimDto>;
+export class GetClaimsOutput {
+  userClaims: Array<ClaimDto>;
+
+  constructor(userClaims: ClaimDto[]) {
+    this.userClaims = userClaims;
+  }
 }
